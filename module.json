@@ -18,7 +18,7 @@
   "languages": [],
     
   "url": "https://github.com/brunocalado/quicknames",
-  "manifest": "https://raw.githubusercontent.com/brunocalado/quicknames/main/module.json",
+  "manifest": "https://raw.githubusercontent.com/brunocalado/quicknames/refs/heads/main/module.json",
   "download": "https://codeload.github.com/brunocalado/quicknames/zip/main",
 
   "packs"  : [

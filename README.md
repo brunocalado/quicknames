@@ -8,5 +8,5 @@ QuickNames.Open();
 
 # Installation
 ```js
-https://raw.githubusercontent.com/brunocalado/quicknames/main/module.json
+https://raw.githubusercontent.com/brunocalado/quicknames/refs/heads/main/module.json
 ```
