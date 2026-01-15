@@ -18,17 +18,44 @@ Hooks.once("init", () => {
 });
 
 /**
- * Optional: Add a button to the Token Controls (left sidebar) for easy access
+ * Add a button to the Token Controls (left sidebar) for easy access
  */
 Hooks.on("getSceneControlButtons", (controls) => {
-    const tokenControls = controls.find(c => c.name === "token");
-    if (tokenControls) {
-        tokenControls.tools.push({
-            name: "quicknames",
-            title: "Quick Names",
-            icon: "fas fa-book-open",
-            onClick: () => window.QuickNames.Open(),
-            button: true
-        });
+    let tokenControls;
+
+    // Strategy 1: Standard Array
+    if (Array.isArray(controls)) {
+        tokenControls = controls.find(c => c.name === "token");
+    } 
+    // Strategy 2: Object wrapper (SceneControls instance or Dictionary)
+    else if (typeof controls === "object" && controls !== null) {
+        // Case A: Has a .controls array property
+        if (Array.isArray(controls.controls)) {
+            tokenControls = controls.controls.find(c => c.name === "token");
+        }
+        // Case B: Is a dictionary/map where keys are control names (Matches your error log)
+        else if (controls.token) {
+            tokenControls = controls.token;
+        }
+    }
+
+    // Only proceed if we successfully found the token layer controls
+    if (tokenControls && tokenControls.tools) {
+        // Prevent duplicate buttons if hook fires multiple times
+        if (!tokenControls.tools.find(t => t.name === "quicknames")) {
+            tokenControls.tools.push({
+                name: "quicknames",
+                title: "Quick Names",
+                icon: "fas fa-book-open",
+                onClick: () => {
+                    if (window.QuickNames) {
+                        window.QuickNames.Open();
+                    } else {
+                        ui.notifications.warn("Quick Names is not fully initialized.");
+                    }
+                },
+                button: true
+            });
+        }
     }
 });
