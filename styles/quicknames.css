@@ -1,0 +1,185 @@
+/* Scoped to the application window */
+.window-app.quicknames-app .window-content {
+    background: url("../../../ui/parchment.jpg") repeat;
+    color: #191813;
+    padding: 8px; /* Reduced padding */
+}
+
+.quicknames-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Reduced gap between groups */
+    /* Changed font to Signika for better readability as requested */
+    font-family: "Signika", sans-serif; 
+}
+
+/* Remove margin from the first element to pull it closer to the title bar */
+.quicknames-content .form-group:first-child {
+    margin-top: 0;
+}
+
+.quicknames-content label {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #191813;
+    margin-bottom: 2px;
+}
+
+/* --- Origin Grid Styling --- */
+.origin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    margin-top: 2px;
+}
+
+.origin-grid input[type="radio"] {
+    display: none;
+}
+
+.origin-grid .origin-btn {
+    text-align: center;
+    padding: 6px;
+    /* Very light background (almost white) for maximum readability */
+    background: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #7a7971;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    color: #000000;
+    transition: all 0.2s;
+}
+
+.origin-grid input[type="radio"]:checked + .origin-btn {
+    background: #322d26;
+    color: #ffffff;
+    border-color: #000;
+}
+
+.origin-grid .origin-btn:hover {
+    background: #ffffff;
+    color: #000;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* --- Gender Group --- */
+.radio-group {
+    display: flex;
+    gap: 5px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group .radio-label {
+    flex: 1;
+    text-align: center;
+    padding: 6px;
+    cursor: pointer;
+    /* Same high visibility background */
+    background: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #999;
+    border-radius: 3px;
+    font-size: 0.95em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.radio-group input[type="radio"]:checked + .radio-label {
+    background: #ffffff; /* White when selected in this group style? Or dark? Let's keep consistent with origins? 
+                            Actually, previous design had white selected for gender. 
+                            Let's invert to match Origins for consistency: Dark Selected, Light Unselected.
+                         */
+    background: #322d26;
+    color: #fff;
+    border-color: #000;
+}
+
+/* --- Inline Checkbox (Surname) --- */
+.form-group.inline-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    /* Solid white background as requested */
+    background: #ffffff;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.inline-group input[type="checkbox"] {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.inline-group label.pointer {
+    cursor: pointer;
+    margin-bottom: 0;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* --- Result & Copy Button --- */
+.result-row {
+    display: flex;
+    gap: 5px;
+}
+
+#name-result {
+    flex: 1;
+    font-size: 1.3em;
+    text-align: center;
+    height: 38px;
+    /* Standard readable font */
+    font-family: "Signika", sans-serif;
+    background: #ffffff;
+    border: 1px solid #7a7971;
+    color: #000;
+    font-weight: bold;
+}
+
+.copy-btn {
+    width: 38px;
+    flex: 0 0 38px;
+    border: 1px solid #7a7971;
+    background: #e0e0d0;
+    color: #322d26;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+.copy-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #000;
+}
+
+/* --- Generate Button --- */
+.generate-btn {
+    background: #6c1818;
+    color: white;
+    border: 1px solid #2e0808;
+    font-size: 1.3em; /* Slightly larger text */
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 3px;
+    font-family: "Signika", sans-serif;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.generate-btn:hover {
+    background: #8a1e1e;
+    box-shadow: 0 0 8px #ff000040;
+}
