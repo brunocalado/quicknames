@@ -9,7 +9,10 @@
   },
   
   "authors": [
-    {}
+    {
+      "name": "Mestre Digital",
+      "url": ""
+    }
   ],
   
   "esmodules": ["scripts/main.js"],
